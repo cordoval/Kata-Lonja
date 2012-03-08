@@ -8,13 +8,25 @@ class DescribeLonja extends \PHPSpec\Context
 {
     protected $lonja;
 
+    protected $price = array(
+        'Lisboa' => 600,
+        'Madrid' => 500,
+        'Barcelona' => 450,
+    );
+
     public function before()
     {
-        $this->lonja = $this->spec(new Lonja());
+        $merchandise = array(
+            'Pulpo' => 100,
+        );
+
+        $this->lonja = $this->spec(new Lonja($merchandise));
     }
 
-    public function itShouldIfGreaterGainInLisboaThenGoToLisboa()
+    public function itShouldReturnLisboaForPulpo()
     {
-         $this->lonja->getBestPlaceToSell()->should->be('Lisboa');
+         $this->lonja->getBestPlaceToSell($this->price)->should->be('Lisboa');
     }
+
+    //public function itShould
 }
