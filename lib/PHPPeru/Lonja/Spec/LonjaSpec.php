@@ -14,6 +14,12 @@ class DescribeLonja extends \PHPSpec\Context
         'Barcelona' => 450,
     );
 
+    protected $distances = array(
+        'Lisboa' => 600,
+        'Madrid' => 800,
+        'Barcelona' => 1100,
+    );
+
     public function before()
     {
         $merchandise = array(
@@ -28,5 +34,20 @@ class DescribeLonja extends \PHPSpec\Context
          $this->lonja->getBestPlaceToSell($this->price)->should->be('Lisboa');
     }
 
-    //public function itShould
+    public function itShouldReturnLisboaForGivenDistances()
+    {
+        $this->lonja->getBestPlaceWithDistances($this->price, $this->distances)->should->be('Lisboa');
+    }
+
+    public function itShouldReturnMadridForGivenDistances()
+    {
+        $this->distances = array(
+            'Lisboa' => 6000,
+            'Madrid' => 800,
+            'Barcelona' => 1100,
+        );
+        $this->lonja->getBestPlaceWithDistances($this->price, $this->distances)->should->be('Madrid');
+    }
+
+
 }
