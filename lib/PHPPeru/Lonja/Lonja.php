@@ -23,4 +23,17 @@ class Lonja
             }
         }
     }
+
+    public function getBestPlaceWithDistances($price, $distances)
+    {
+        $priceValue['Lisboa'] = $this->merchandise['Pulpo'] * $price['Lisboa'] - $distances['Lisboa'] * 2 ;
+        $priceValue['Madrid'] = $this->merchandise['Pulpo'] * $price['Madrid'] - $distances['Madrid'] * 2 ;
+        $priceValue['Barcelona'] = $this->merchandise['Pulpo'] * $price['Barcelona'] - $distances['Barcelona'] * 2 ;
+        $maxPrice = max($priceValue);
+        foreach ($priceValue as $key => $value) {
+            if($maxPrice == $value) {
+                return $key;
+            }
+        }
+    }
 }
