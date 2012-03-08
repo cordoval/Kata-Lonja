@@ -1,0 +1,13 @@
+{
+    "config" : { "bin-dir": "." },
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*",
+        "symfony/security-bundle": "2.*",
+        "cordoval/phpspec": "master",
+        "behat/behat": ">=2.2.2"
+    },
+    "autoload": {
+            "psr-0": { "PHPPeru\\": "lib/" }
+    }
+}
