@@ -6,6 +6,6 @@ class Lonja
 {
     public function getBestPlaceToSell()
     {
-
+        return 'Lisboa';
     }
 }
